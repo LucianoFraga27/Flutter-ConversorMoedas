@@ -1,3 +1,4 @@
+import 'package:conversor_moedas/app/views/currenty_box.dart';
 import 'package:flutter/material.dart';
 
 class HomeWidget extends StatefulWidget {
@@ -8,8 +9,6 @@ class HomeWidget extends StatefulWidget {
 }
 
 class _HomeWidgetState extends State<HomeWidget> {
-  final items = ['Real', 'Dolar', 'Euro', 'Bitcoin'];
-  String? value;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -24,63 +23,15 @@ class _HomeWidgetState extends State<HomeWidget> {
               "assets/logo.png",
               width: 180,
             ),
-            SizedBox(
-              width: MediaQuery.of(context).size.width,
-              child: Row(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Expanded(
-                      flex: 1,
-                      child: SizedBox(
-                        height: 56,
-                        child: DropdownButton<String>(
-                          isExpanded: true,
-                            underline: Container(
-                              height:1,
-                              color:Colors.red
-                            ),
-                            items: items.map(buildMenuItem).toList(),
-                            value: value,
-                            onChanged: (value) => setState(() => this.value = value)
-                        ),
-                      )),
-                  SizedBox(
-                    height: 10,
-                  ),
-                  Expanded(
-                      flex: 2,
-                      child: TextField(
-                        decoration: InputDecoration(
-                          focusedBorder: UnderlineInputBorder(
-                            borderSide: BorderSide(
-                              color: Colors.red
-                            ),
-                          ),
-                        ),
-                      )),
-                ],
-              ),
-            ),
+            CurrencyBox(),
             SizedBox(
               height: 20,
             ),
-            RaisedButton(onPressed: () {},
-                color: Colors.red,
-                child: Text("Converter"))
+            RaisedButton(
+                onPressed: () {}, color: Colors.red, child: Text("Converter"))
           ],
         ),
       ),
     ));
   }
-
-  DropdownMenuItem<String> buildMenuItem (String item) => DropdownMenuItem(
-      value: item,
-      child: Text(item,
-      style: TextStyle(
-          fontWeight: FontWeight.bold,
-          fontSize: 20
-      ),),
-
-  );
-
 }
