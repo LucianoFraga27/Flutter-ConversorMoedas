@@ -21,6 +21,7 @@ class _CurrencyBoxState extends State<CurrencyBox> {
             child: SizedBox(
               height: 56,
               child: DropdownButton<String>(
+                  iconEnabledColor: Colors.red,
                   isExpanded: true,
                   underline: Container(height: 1, color: Colors.red),
                   items: items.map(buildMenuItem).toList(),

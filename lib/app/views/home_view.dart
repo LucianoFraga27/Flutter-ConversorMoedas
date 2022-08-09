@@ -16,12 +16,19 @@ class _HomeWidgetState extends State<HomeWidget> {
       width: MediaQuery.of(context).size.width,
       height: MediaQuery.of(context).size.height,
       child: Padding(
-        padding: const EdgeInsets.only(top: 120, left: 20, right: 20),
+        padding: const EdgeInsets.only(top: 120, left: 20, right: 20, bottom: 20),
         child: Column(
           children: [
             Image.asset(
               "assets/logo.png",
               width: 180,
+            ),
+            SizedBox(
+              height: 20,
+            ),
+            CurrencyBox(),
+            SizedBox(
+              height: 20,
             ),
             CurrencyBox(),
             SizedBox(
